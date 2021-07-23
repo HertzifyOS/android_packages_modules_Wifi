@@ -5152,6 +5152,10 @@ public class ClientModeImpl extends StateMachine implements ClientMode {
                     handleP2pConnectionStateChanged(message);
                     break;
                 }
+                case WifiP2pServiceImpl.SET_MIRACAST_MODE:
+                    if (mVerboseLoggingEnabled) logd("SET_MIRACAST_MODE: " + (int)message.arg1);
+                    mWifiConnectivityManager.saveMiracastMode((int)message.arg1);
+                    break;
                 case CMD_RESET_SIM_NETWORKS:
                 case WifiMonitor.NETWORK_CONNECTION_EVENT:
                 case WifiMonitor.NETWORK_DISCONNECTION_EVENT:
